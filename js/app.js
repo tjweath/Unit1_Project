@@ -108,8 +108,12 @@ function init() {
             removeFood();
             snakeCells.push(currentPosition);
             addFood();
-            score += 5; 
+            score += 1; 
             updateScore();
+
+            var eatAudio = document.getElementById("eatSound");
+            eatAudio.play(); 
+
             // Increase the speed more after eating food
             if (intervalTime > 100) { // Adjust the threshold based on your preference
                 intervalTime -= 20; // Decrease by a larger value
@@ -123,12 +127,18 @@ function init() {
         const scoreElement = document.querySelector(".score");
         scoreElement.textContent = `Score: ${score}`;
     }
+      
     
     // Check for collision with wall 
     function checkCollision(direction) {
         if (gameOver || snakeCells.length !== new Set(snakeCells).size) {
+
+            var crashAudio = document.getElementById("crashSound");
+            crashAudio.play(); 
+            
             alert ('Game is over!')
             window.location.reload()
+            
         }
     }
     // ? Handle movement
