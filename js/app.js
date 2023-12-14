@@ -125,7 +125,7 @@ function init() {
 
     function updateScore() {
         const scoreElement = document.querySelector(".score");
-        scoreElement.textContent = `Score: ${score}`;
+        scoreElement.textContent = `Mince Pies: ${score}`;
     }
       
     
@@ -165,12 +165,44 @@ function init() {
           gameOver = true;
         }
       }
-    
+
+
     //! Events
     document.addEventListener("keydown", handleMovement);
   
     //! Page Load
     createGrid();
   }
-  
+
+const snowfall = document.getElementById('snowfall');
+
+function createSnowflake() {
+  const snowflake = document.createElement('div');
+  snowflake.classList.add('snowflake');
+  snowflake.innerHTML = '❄'; // You can use other snowflake characters or images
+
+  const size = Math.random() * 20 + 10;
+  snowflake.style.fontSize = `${size}px`;
+
+  const startLeft = Math.random() * window.innerWidth;
+  snowflake.style.left = `${startLeft}px`;
+
+  const startTop = -50; // Start the snowflakes just above the viewport
+  snowflake.style.top = `${startTop}px`;
+
+  snowfall.appendChild(snowflake);
+
+  const endTop = window.innerHeight + 50; // End the snowflakes slightly below the viewport
+
+  const duration = Math.random() * 5 + 3; // Adjust the falling speed
+  snowflake.style.animation = `fall ${duration}s linear infinite, fall-top ${duration}s linear ${startTop}px ${endTop}px forwards`;
+
+  setTimeout(() => {
+    snowflake.remove();
+  }, duration * 1000);
+}
+
+setInterval(createSnowflake, 500); // Adjust the interval to control snowflake generation rate
+
+
   window.addEventListener("DOMContentLoaded", init);

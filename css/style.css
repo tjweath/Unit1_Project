@@ -55,4 +55,28 @@
 .score {
     font-family: 'Lucida Sans', Verdana, sans-serif;
     font-size: large;
+    margin-left: 200px;
 }
+
+@keyframes fall-top {
+    from {
+      top: -50px; /* Start position above the viewport */
+    }
+    to {
+      top: calc(100vh + 50px); /* End position slightly below the viewport */
+    }
+  }
+  
+  .snowflake {
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+    animation: fall 3s linear infinite;
+  }
+  
+  @keyframes fall {
+    to {
+      transform: translateY(100vh);
+    }
+  }
+  
