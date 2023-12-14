@@ -12,7 +12,7 @@
   
   
   .grid-wrapper {
-    height: 100vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,4 +49,9 @@
     background-color: #008000;
     width: 100%; 
     height: 100%;
+}
+
+.score {
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+    font-size: large;
 }

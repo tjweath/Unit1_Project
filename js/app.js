@@ -22,6 +22,7 @@ function init() {
     let direction = 1;
     let gameStarted = false;
     let intervalTime = 500;
+    let score = 0;
   
   
     //! Functions
@@ -107,13 +108,20 @@ function init() {
             removeFood();
             snakeCells.push(currentPosition);
             addFood();
-            // After eating, decrease interval time
-            if (intervalTime > 100) {
-                intervalTime -= 20;
+            score += 5; 
+            updateScore();
+            // Increase the speed more after eating food
+            if (intervalTime > 100) { // Adjust the threshold based on your preference
+                intervalTime -= 20; // Decrease by a larger value
                 clearInterval(intervalId);
                 intervalId = setInterval(moveSnake, intervalTime);
             }
         }
+    }
+
+    function updateScore() {
+        const scoreElement = document.querySelector(".score");
+        scoreElement.textContent = `Score: ${score}`;
     }
     
     // Check for collision with wall 
