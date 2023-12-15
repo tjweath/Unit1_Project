@@ -38,7 +38,9 @@ function init() {
         } else {
             gameOver = true;
             clearInterval(intervalId);
-            alert('Game over!');
+            var crashAudio = document.getElementById("crashSound");
+            crashAudio.play(); 
+            alert('No more pies for you!!');
             window.location.reload();
             return;
         }
@@ -125,7 +127,7 @@ function init() {
 
     function updateScore() {
         const scoreElement = document.querySelector(".score");
-        scoreElement.textContent = `Mince Pies: ${score}`;
+        scoreElement.textContent = `MINCE PIES: ${score}`;
     }
       
     
@@ -136,9 +138,9 @@ function init() {
             var crashAudio = document.getElementById("crashSound");
             crashAudio.play(); 
             
-            alert ('Game is over!')
+            alert ('No more pies for you!!')
             window.location.reload()
-            
+        
         }
     }
     // ? Handle movement

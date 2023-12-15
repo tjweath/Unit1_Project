@@ -10,7 +10,6 @@
     background-color: #b60707cd;
   }
   
-  
   .grid-wrapper {
     height: 85vh;
     display: flex;
@@ -55,8 +54,20 @@
 .score {
     font-family: 'Lucida Sans', Verdana, sans-serif;
     font-size: large;
-    margin-left: 200px;
+    font-display: bold;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
 }
+
+h2 {
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+    font-size: large;
+    font-display: bold;
+    width: 100%;
+    text-align: center;
+}
+
 
 @keyframes fall-top {
     from {
@@ -79,4 +90,4 @@
       transform: translateY(100vh);
     }
   }
-  
+
